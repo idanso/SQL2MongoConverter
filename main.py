@@ -26,7 +26,7 @@ def and_or_func_helper(cond1,cond2, oper) -> str:
 def contain_and_or(cond):
     for i in cond:
         if i=='and':
-            return (str(cond).split('and'),'and')
+            return str(cond).split('and'),'and'
         if i=='or':
             return str(cond).split('or'),'or'
     return None
