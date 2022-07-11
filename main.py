@@ -9,7 +9,7 @@ def and_or_func_helper(cond1,cond2, oper) -> str:
 
 
 def where_pharser(where_lst) -> list:
-
+    pass
 
 
 def select_query(query) -> str:
