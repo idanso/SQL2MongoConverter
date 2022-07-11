@@ -5,8 +5,31 @@ def symbol_pharser(symbol, num)->str:
 
 
 def and_or_func_helper(cond1,cond2, oper) -> str:
+    cond1_after_check = contain_and_or(cond1)
+    cond2_after_check = contain_and_or(cond2)
+    if (cond1_after_check)!=None:
+        if (cond2_after_check(cond2))!=None:
+            return '"$' + oper + '": [{' \
+                   + and_or_func_helper(cond1_after_check[0][0],cond1_after_check[0][1]
+                                        ,cond1_after_check[1]) + ' },{' + and_or_func_helper(cond2_after_check[0][0],
+                                        cond2_after_check[0][1],cond2_after_check[1]) + '}]' + '}'
+        else:
+            #only the first part in recursion the second is a regular statement
+            #need to add code here, im not sure yet how to do this
+            pass
+    elif (cond2_after_check)!=None:
+        # only the second part in recursion the first is a regular statement
+        pass
+    # if we got until here we defintly dont have another sub-statment and we can return statement
     return '"$' + oper + '": [{'+cond1+' },{'+cond2+'}]'+'}'
 
+def contain_and_or(cond):
+    for i in cond:
+        if i=='and':
+            return (str(cond).split('and'),'and')
+        if i=='or':
+            return str(cond).split('or'),'or'
+    return None
 
 def where_pharser(where_lst) -> list:
     pass
