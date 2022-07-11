@@ -23,7 +23,7 @@ def and_or_func_helper(cond1,cond2, oper) -> str:
     # if we got until here we defintly dont have another sub-statment and we can return statement
     return '"$' + oper + '": [{'+cond1+' },{'+cond2+'}]'+'}'
 
-def contain_and_or(cond):
+def contain_and_or(cond)-> tuple:
     for i in cond:
         if i=='and':
             return str(cond).split('and'),'and'
